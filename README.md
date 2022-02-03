@@ -27,10 +27,19 @@ See [the official document](https://github.com/yt-dlp/yt-dlp#readme) for detail
 
 ## Build
 
+Full build of IINA dependencies and IINA itself:
 ```bash
-$ cp other/*-iina.rb $(brew --repo homebrew/core)/Formula # Copy custom mpv and ffmpeg formula into homebrew repo
-$ make depends # Build dependencies
-$ make build # Build iina itself
+$ make
+```
+
+Build just the dependencies:
+```bash
+$ make depends
+```
+
+Build IINA itself:
+```bash
+$ make build
 ```
   - Tips:
     - Change URL in the shell script if you want to download arch-specific binaries. By default, it will download the universal ones. You can download other binaries from `https://iina.io/dylibs/${ARCH}/fileList.txt` where `ARCH` can be `universal`, `arm64` and `x86_64`.
