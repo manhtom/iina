@@ -28,8 +28,8 @@
 /* Class = "NSTextField"; ibExternalAccessibilityHelp = "/usr/local/bin"; ObjectID = "ePv-ZR-5fY"; */
 "ePv-ZR-5fY.ibExternalAccessibilityHelp" = "/usr/local/bin";
 
-/* Class = "NSTextFieldCell"; title = "Default: 100"; ObjectID = "fab-7d-mMQ"; */
-"fab-7d-mMQ.title" = "預設值：100";
+/* Class = "NSTextFieldCell"; title = "Default: 36000"; ObjectID = "fab-7d-mMQ"; */
+"fab-7d-mMQ.title" = "預設值：36000";
 
 /* Class = "NSButtonCell"; title = "Enable cache"; ObjectID = "fpV-al-bn7"; */
 "fpV-al-bn7.title" = "啟用快取";
@@ -72,4 +72,3 @@
 
 /* Class = "NSTextFieldCell"; title = "Raw options:"; ObjectID = "zCD-9d-ziV"; */
 "zCD-9d-ziV.title" = "額外參數：";
-
