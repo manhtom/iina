@@ -193,7 +193,7 @@ class HistoryWindowController: NSWindowController, NSOutlineViewDelegate, NSOutl
   // MARK: - Searching
 
   @IBAction func searchFieldAction(_ sender: NSSearchField) {
-    let searchString = sender.stringValue
+    let searchString = sender.stringValue.lowercased()
     guard !searchString.isEmpty else {
       reloadData()
       return
