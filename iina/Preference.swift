@@ -150,6 +150,7 @@ struct Preference {
     static let hardwareDecoder = Key("hardwareDecoder")
     static let forceDedicatedGPU = Key("forceDedicatedGPU")
     static let loadIccProfile = Key("loadIccProfile")
+    static let enableHdrModeByDefault = Key("enableHdrModeByDefault")
 
     static let audioThreads = Key("audioThreads")
     static let audioLanguage = Key("audioLanguage")
@@ -728,6 +729,7 @@ struct Preference {
     .hardwareDecoder: HardwareDecoderOption.auto.rawValue,
     .forceDedicatedGPU: false,
     .loadIccProfile: true,
+    .enableHdrModeByDefault: true,
     .audioThreads: 0,
     .audioLanguage: "",
     .maxVolume: 100,

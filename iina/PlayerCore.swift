@@ -221,6 +221,7 @@ class PlayerCore: NSObject {
     if shouldAutoLoad {
       info.shouldAutoLoadFiles = true
     }
+    info.hdrEnabled = Preference.bool(for: .enableHdrModeByDefault)
     let path = isNetwork ? url.absoluteString : url.path
     openMainWindow(path: path, url: url, isNetwork: isNetwork)
   }
