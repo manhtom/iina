@@ -110,6 +110,3 @@ browser/Firefox_Open_In_IINA/*
 
 *.xcarchive
 /.vscode
-
-deps/executable/youtube-dl
-
