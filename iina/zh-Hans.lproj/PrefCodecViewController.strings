@@ -57,3 +57,16 @@
 
 /* Class = "NSButtonCell"; title = "Enable HDR mode by default"; ObjectID = "oMN-7X-c5d"; */
 "oMN-7X-c5d.title" = "默认启用HDR模式";
+
+/* Class = "NSButtonCell"; title = "Enable tone mapping"; ObjectID = "a5Y-gU-JTj"; */
+"a5Y-gU-JTj.title" = "启用色调映射";
+
+/* Class = "NSTextField"; title = "Target peak"; ObjectID = "xVk-OA-kOf"; */
+"xVk-OA-kOf.title" = "目标峰值亮度";
+
+/* Class = "NSTextField"; title = "nits"; ObjectID = "baO-xy-7hD"; */
+"baO-xy-7hD.title" = "尼特";
+
+/* Class = "NSTextField"; title = "Algorithm"; ObjectID = "qzI-rq-PqO"; */
+"qzI-rq-PqO.title" = "色调映射算法";
+

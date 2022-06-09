@@ -283,6 +283,8 @@ class VideoView: NSView {
       videoLayer.wantsExtendedDynamicRangeContent = false
       player.mpv.setString(MPVOption.GPURendererOptions.targetTrc, "auto")
       player.mpv.setString(MPVOption.GPURendererOptions.targetPrim, "auto")
+      player.mpv.setString(MPVOption.GPURendererOptions.targetPeak, "auto")
+      player.mpv.setString(MPVOption.GPURendererOptions.toneMapping, "")
     }
   }
 }
@@ -368,6 +370,19 @@ extension VideoView {
     mpv.setString(MPVOption.GPURendererOptions.iccProfile, "")
     mpv.setString(MPVOption.GPURendererOptions.targetTrc, gamma)
     mpv.setString(MPVOption.GPURendererOptions.targetPrim, primaries)
+
+    if Preference.bool(for: .enableToneMapping) {
+      let targetPeak = Preference.integer(for: .toneMappingTargetPeak)
+      let algorithm = Preference.ToneMappingAlgorithmOption(rawValue: Preference.integer(for: .toneMappingAlgorithm))!.mpvString
+
+      Logger.log("Will enable tone mapping target-peak=\(targetPeak) algorithm=\(algorithm)", subsystem: hdrSubsystem);
+      mpv.setInt(MPVOption.GPURendererOptions.targetPeak, targetPeak)
+      mpv.setString(MPVOption.GPURendererOptions.toneMapping, algorithm)
+    } else {
+      mpv.setString(MPVOption.GPURendererOptions.targetPeak, "auto")
+      mpv.setString(MPVOption.GPURendererOptions.toneMapping, "")
+    }
+
     return true;
   }
 }
