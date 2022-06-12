@@ -29,7 +29,7 @@ class DurationDisplayTextField: NSTextField {
     }
   }
 
-  func updateText(with duration: VideoTime, given current: VideoTime) {
+  func updateText(with duration: VideoTime, given current: VideoTime, and playSpeed: Double) {
     let precision = DurationDisplayTextField.precision
     let stringValue: String
     switch mode {
@@ -39,6 +39,7 @@ class DurationDisplayTextField: NSTextField {
       stringValue = duration.stringRepresentationWithPrecision(precision)
     case .remaining:
       var remaining = (duration - current)
+      remaining.second = remaining.second / playSpeed
       if remaining.second < 0 {
         remaining = VideoTime.zero
       }
