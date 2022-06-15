@@ -309,7 +309,7 @@ extension VideoView {
     guard let mpv = player.mpv else { return false }
 
     guard let primaries = mpv.getString(MPVProperty.videoParamsPrimaries), let gamma = mpv.getString(MPVProperty.videoParamsGamma) else {
-      Logger.log("HDR primaries and gamma not available", level: .debug, subsystem: hdrSubsystem);
+      Logger.log("HDR primaries and gamma not available", subsystem: hdrSubsystem);
       return false;
     }
 
@@ -355,23 +355,23 @@ extension VideoView {
       return false; // SDR
 
     default:
-      Logger.log("Unknown HDR color space information gamma=\(gamma) primaries=\(primaries)", level: .debug, subsystem: hdrSubsystem);
+      Logger.log("Unknown HDR color space information gamma=\(gamma) primaries=\(primaries)", subsystem: hdrSubsystem);
       return false;
     }
 
     guard (window?.screen?.maximumPotentialExtendedDynamicRangeColorComponentValue ?? 1.0) > 1.0 else {
-      Logger.log("HDR video was found but the display does not support EDR mode", level: .debug, subsystem: hdrSubsystem);
+      Logger.log("HDR video was found but the display does not support EDR mode", subsystem: hdrSubsystem);
       return false;
     }
 
     guard player.info.hdrEnabled else { return nil }
 
     if videoLayer.colorspace?.name == name {
-      Logger.log("HDR mode has been enabled, skipping", level: .debug, subsystem: hdrSubsystem);
+      Logger.log("HDR mode has been enabled, skipping", subsystem: hdrSubsystem);
       return true;
     }
 
-    Logger.log("Will activate HDR color space instead of using ICC profile", level: .debug, subsystem: hdrSubsystem);
+    Logger.log("Will activate HDR color space instead of using ICC profile", subsystem: hdrSubsystem);
 
     videoLayer.wantsExtendedDynamicRangeContent = true
     videoLayer.colorspace = CGColorSpace(name: name!)
