@@ -34,6 +34,9 @@
 /* Class = "NSTextFieldCell"; title = "Colorspace:"; ObjectID = "mLo-Wc-BoO"; */
 "mLo-Wc-BoO.title" = "色彩空间:";
 
+/* Class = "NSTextFieldCell"; title = "Pixel Format:"; ObjectID = "UrR-u2-hFz"; */
+"UrR-u2-hFz.title" = "像素格式:";
+
 /* Class = "NSWindow"; title = "Inspector"; ObjectID = "F0z-JX-Cv5"; */
 "F0z-JX-Cv5.title" = "检查器";
 
