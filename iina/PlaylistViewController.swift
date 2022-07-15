@@ -63,7 +63,7 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
   @IBOutlet var addFileMenu: NSMenu!
   @IBOutlet weak var addBtn: NSButton!
   @IBOutlet weak var removeBtn: NSButton!
-  
+
   private var playlistTotalLengthIsReady = false
   private var playlistTotalLength: Double? = nil
 
@@ -90,7 +90,7 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
       $0?.image?.isTemplate = true
       $0?.alternateImage?.isTemplate = true
     }
-    
+
     deleteBtn.toolTip = NSLocalizedString("mini_player.delete", comment: "delete")
     loopPlaylistBtn.toolTip = NSLocalizedString("mini_player.loop", comment: "loop playlist")
     loopFileBtn.toolTip = NSLocalizedString("mini_player.loop_file", comment: "loop file")
@@ -141,6 +141,9 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
 
     let loopStatus = player.mpv.getString(MPVOption.PlaybackControl.loopPlaylist)
     loopPlaylistBtn.state = (loopStatus == "inf" || loopStatus == "force") ? .on : .off
+
+    let shuffleStatus = player.mpv.getFlag(MPVOption.PlaybackControl.shuffle)
+    shuffleBtn.state = shuffleStatus ? .on : .off
   }
 
   deinit {
@@ -191,7 +194,7 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
       }
     }
   }
-    
+
   func updateLoopPlaylistBtnStatus() {
     guard isViewLoaded else { return }
     let loopStatus = player.mpv.getString(MPVOption.PlaybackControl.loopPlaylist)
@@ -207,7 +210,13 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
     loopFileBtn.state = loopEnabled ? .on : .off
     Preference.set(loopEnabled, for: .enableFileLoop)
   }
-    
+
+  func updateShuffleBtnStatus() {
+    guard isViewLoaded else { return }
+    let shuffleStatus = player.mpv.getFlag(MPVOption.PlaybackControl.shuffle)
+    shuffleBtn.state = shuffleStatus ? .on : .off
+  }
+
   // MARK: - Tab switching
 
   /** Switch tab (call from other objects) */
@@ -417,7 +426,7 @@ class PlaylistViewController: NSViewController, NSTableViewDataSource, NSTableVi
   @IBAction func loopFileBtnAction(_ sender: AnyObject) {
     player.toggleFileLoop()
   }
-  
+
   @IBAction func shuffleBtnAction(_ sender: AnyObject) {
     player.toggleShuffle()
   }
@@ -917,4 +926,3 @@ class ChapterTableCellView: NSTableCellView {
     textField?.toolTip = title
   }
 }
-
