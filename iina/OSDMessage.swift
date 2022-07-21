@@ -74,6 +74,7 @@ enum OSDMessage {
   case canceled
   case fileLoop(Bool)
   case playlistLoop(Bool)
+  case shuffle(Bool)
 
   func message() -> (String, OSDType) {
     switch self {
@@ -331,6 +332,14 @@ enum OSDMessage {
       return (
         String(format: NSLocalizedString("osd.playlist_loop", comment: "Playlist Loop: %@"),
                enabled ? NSLocalizedString("general.on", comment: "On") : NSLocalizedString("general.off", comment: "Off")),
+        .normal
+      )
+    
+    case .shuffle(let enabled):
+      return (
+        String(format: NSLocalizedString("osd.shuffle", comment: "Shuffle: %@"),
+               enabled ? NSLocalizedString("general.on", comment: "On") :
+                   NSLocalizedString("general.off", comment: "Off")),
         .normal
       )
     }

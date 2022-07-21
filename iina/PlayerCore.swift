@@ -730,7 +730,7 @@ class PlayerCore: NSObject {
     sendOSD(.playlistLoop(!isLoop))
   }
 
-  func toggleShuffle() {  // TODO add OSD message
+  func toggleShuffle() {
     let isShuffled = mpv.getFlag(MPVOption.PlaybackControl.shuffle)
     if isShuffled {
       mpv.command(.playlistUnshuffle)
@@ -738,6 +738,7 @@ class PlayerCore: NSObject {
       mpv.command(.playlistShuffle)
     }
     mpv.setFlag(MPVOption.PlaybackControl.shuffle, !isShuffled)
+    sendOSD(.shuffle(!isShuffled))
     postNotification(.iinaPlaylistChanged)
   }
 
