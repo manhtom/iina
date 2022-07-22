@@ -712,13 +712,13 @@ class MenuController: NSObject, NSMenuDelegate {
     // eliminates duplicates reverse the list again to not change the key selected as the shortcut
     // when the the binding set maps multiple keys to the same input command associated with the
     // menu item.
-    let activeBindings = keyBindings.reversed().uniqued(on: \.key).reversed()
+    let activeBindings = keyBindings.reversed().uniqued(on: \.rawKey).reversed()
     settings.forEach { (menuItem, isIINACmd, actions, normalizeLastNum, numRange, l10nKey) in
       var bound = false
       for kb in activeBindings {
         guard kb.isIINACommand == isIINACmd else { continue }
         let (sameAction, value) = sameKeyAction(kb.action, actions, normalizeLastNum, numRange)
-        if sameAction, let (kEqv, kMdf) = KeyCodeHelper.macOSKeyEquivalent(from: kb.key) {
+        if sameAction, let (kEqv, kMdf) = KeyCodeHelper.macOSKeyEquivalent(from: kb.rawKey) {
           menuItem.keyEquivalent = kEqv
           menuItem.keyEquivalentModifierMask = kMdf
           if let value = value, let l10nKey = l10nKey {
