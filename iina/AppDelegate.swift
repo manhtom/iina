@@ -122,6 +122,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     Logger.log("App will launch")
 
+    // Hide Window > "Enter Full Screen" menu item, becuase this is already present in the Video menu
+    UserDefaults.standard.set(false, forKey: "NSFullScreenMenuItemEverywhere")
+
     // register for url event
     NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleURLEvent(event:withReplyEvent:)), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
 
