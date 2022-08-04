@@ -285,6 +285,7 @@ class VideoView: NSView {
       player.mpv.setString(MPVOption.GPURendererOptions.targetPrim, "auto")
       player.mpv.setString(MPVOption.GPURendererOptions.targetPeak, "auto")
       player.mpv.setString(MPVOption.GPURendererOptions.toneMapping, "")
+      player.mpv.setFlag(MPVOption.Screenshot.screenshotTagColorspace, false)
     }
   }
 }
@@ -378,6 +379,7 @@ extension VideoView {
     mpv.setString(MPVOption.GPURendererOptions.iccProfile, "")
     mpv.setString(MPVOption.GPURendererOptions.targetTrc, gamma)
     mpv.setString(MPVOption.GPURendererOptions.targetPrim, primaries)
+    mpv.setFlag(MPVOption.Screenshot.screenshotTagColorspace, true)
 
     if Preference.bool(for: .enableToneMapping) {
       let targetPeak = Preference.integer(for: .toneMappingTargetPeak)

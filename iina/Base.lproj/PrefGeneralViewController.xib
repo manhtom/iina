@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -560,6 +560,8 @@
                                 <menuItem title="PNG" state="on" id="3XO-ks-TDg"/>
                                 <menuItem title="JPEG (.jpg)" tag="1" id="tmy-ty-8uK"/>
                                 <menuItem title="JPEG (.jpeg)" tag="2" id="NVh-C5-b9i"/>
+                                <menuItem title="WebP (.webp)" tag="3" id="OTz-RA-Rc9"/>
+                                <menuItem title="JPEG XL (.jxl)" tag="4" id="7xc-iD-aHo"/>
                             </items>
                         </menu>
                     </popUpButtonCell>
