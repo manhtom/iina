@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-      branches: [develop]
+    branches: [develop]
 
 jobs:
   build-x64:
@@ -14,13 +14,8 @@ jobs:
       - name: Download dependencies
         run: |
           pwd
-          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/runs/2325943048/deps.zip
-          unzip -d deps deps
-          /usr/bin/sed -i '' 's/libswscale.6.dylib/libswscale.5.dylib/g' iina.xcodeproj/project.pbxproj
-          /usr/bin/sed -i '' 's/libavformat.59.dylib/libavformat.58.dylib/g' iina.xcodeproj/project.pbxproj
-          /usr/bin/sed -i '' 's/libavcodec.59.dylib/libavcodec.58.dylib/g' iina.xcodeproj/project.pbxproj
-          /usr/bin/sed -i '' 's/libavfilter.8.dylib/libavfilter.7.dylib/g' iina.xcodeproj/project.pbxproj
-          /usr/bin/sed -i '' 's/libavutil.57.dylib/libavutil.56.dylib/g' iina.xcodeproj/project.pbxproj
+          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/artifacts/319038412.zip
+          unzip -d deps 319038412
 
       - name: Archive
         run: make archive
@@ -43,13 +38,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Depends
-        run: make depends
+      - name: Download dependencies
+        run: |
+          pwd
+          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/artifacts/319038411.zip
+          unzip -d deps 319038411
 
       - name: Archive
-        run: |
-          make clean
-          xcodebuild -project iina.xcodeproj -scheme iina -config Release -archivePath ./archive archive -arch arm64
+        run: make archive
 
       - name: Create tar
         run: |
