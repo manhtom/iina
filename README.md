@@ -10,10 +10,10 @@
 
 ## Features
 
-* HDR playback
-* Danmaku ( supports Bilibili only due to the limitation of `yt-dlp`, experimental ). I used some code from [iina-danmaku](https://github.com/xjbeta/iina-danmaku), Thanks [xjbeta](https://github.com/xjbeta)
-* AppleScript. I used code from [Wevah's AppleScript support PR](https://github.com/iina/iina/pull/2857), Thanks [Wevah](https://github.com/Wevah)
-* LOTS of bug fixes and performance improvements from [low-batt](https://github.com/iina-plus?type=source)
+- HDR playback
+- Danmaku ( supports Bilibili only due to the limitation of `yt-dlp`, experimental ). I used some code from [iina-danmaku](https://github.com/xjbeta/iina-danmaku), Thanks [xjbeta](https://github.com/xjbeta)
+- AppleScript. I used code from [Wevah's AppleScript support PR](https://github.com/iina/iina/pull/2857), Thanks [Wevah](https://github.com/Wevah)
+- LOTS of bug fixes and performance improvements from [low-batt](https://github.com/iina-plus?type=source)
 
 ## Statement
 
@@ -32,30 +32,32 @@ See [the official document](https://github.com/yt-dlp/yt-dlp#readme) for detail
 ## Build
 
 Full build of IINA dependencies and IINA itself:
+
 ```bash
 $ make
 ```
 
 Build just the dependencies:
+
 ```bash
 $ make depends
 ```
 
 Build IINA itself:
+
 ```bash
 $ make build
 ```
-  - Tips:
-    - Change URL in the shell script if you want to download arch-specific binaries. By default, it will download the universal ones. You can download other binaries from `https://iina.io/dylibs/${ARCH}/fileList.txt` where `ARCH` can be `universal`, `arm64` and `x86_64`.
-    - If you want to build an older IINA version, make sure to download the correponding dylibs. For example, `https://iina.io/dylibs/1.2.0/universal/fileList.txt`.
 
 ## Binaries
 
 You may download prebuilt binaries on Github Action page: https://github.com/iina-plus/iina/actions
 
-* Intel (x64): Artifacts named `IINA-x86_64` ( Requires 10.15+ )
-* Apple M1 (aarch64): Artifacts named `IINA-arm64` ( Requires 12.0+ )
-* No universal binaries available
+- Intel (x64): Artifacts named `IINA-x86_64` ( Requires 10.15+ )
+- Apple M1 (aarch64): Artifacts named `IINA-arm64` ( Requires 12.0+ )
+- No universal binaries available
+
+All binaries above are built with `ffmpeg 5.1` and `mpv master`.
 
 ## License
 
