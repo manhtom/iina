@@ -314,7 +314,8 @@ extension VideoView {
       return false;
     }
 
-    var name: CFString? = nil;
+    var name: CFString? = nil
+    var isHdr = false
     switch primaries {
     case "display-p3":
       switch gamma {
@@ -329,6 +330,7 @@ extension VideoView {
       default:
         name = CGColorSpace.displayP3
       }
+      isHdr = true
 
     case "bt.2020":
       switch gamma {
@@ -351,30 +353,45 @@ extension VideoView {
       default:
         name = CGColorSpace.itur_2020
       }
+      isHdr = true
 
     case "bt.709":
-      return false; // SDR
+      switch gamma {
+      case "pq":
+        if #available(macOS 12.0, *) {
+          name = CGColorSpace.itur_709_PQ;
+        } else {
+          fallthrough
+        }
+      default:
+        name = CGColorSpace.itur_709
+      }
 
     default:
-      Logger.log("Unknown HDR color space information gamma=\(gamma) primaries=\(primaries)", subsystem: hdrSubsystem);
-      return false;
-    }
-
-    guard (window?.screen?.maximumPotentialExtendedDynamicRangeColorComponentValue ?? 1.0) > 1.0 else {
-      Logger.log("HDR video was found but the display does not support EDR mode", subsystem: hdrSubsystem);
-      return false;
+      Logger.log("Unknown HDR color space information gamma=\(gamma) primaries=\(primaries)", subsystem: hdrSubsystem)
+      return false
     }
 
     guard player.info.hdrEnabled else { return nil }
 
     if videoLayer.colorspace?.name == name {
-      Logger.log("HDR mode has been enabled, skipping", subsystem: hdrSubsystem);
-      return true;
+      Logger.log("HDR mode has been enabled, skipping", subsystem: hdrSubsystem)
+      return true
     }
 
-    Logger.log("Will activate HDR color space instead of using ICC profile", subsystem: hdrSubsystem);
+    if !isHdr && !Preference.bool(for: .allowHdrModeForSdrVideos) {
+      Logger.log("SDR video found", subsystem: hdrSubsystem)
+      return false
+    }
 
+    if (window?.screen?.maximumPotentialExtendedDynamicRangeColorComponentValue ?? 1.0) <= 1.0 {
+      Logger.log("The display does not support EDR mode", subsystem: hdrSubsystem)
+      return false
+    }
+
+    Logger.log("Will activate HDR color space instead of using ICC profile", subsystem: hdrSubsystem)
     videoLayer.wantsExtendedDynamicRangeContent = true
+
     videoLayer.colorspace = CGColorSpace(name: name!)
     mpv.setString(MPVOption.GPURendererOptions.iccProfile, "")
     mpv.setString(MPVOption.GPURendererOptions.targetTrc, gamma)
@@ -385,7 +402,7 @@ extension VideoView {
       let targetPeak = Preference.integer(for: .toneMappingTargetPeak)
       let algorithm = Preference.ToneMappingAlgorithmOption(rawValue: Preference.integer(for: .toneMappingAlgorithm))!.mpvString
 
-      Logger.log("Will enable tone mapping target-peak=\(targetPeak) algorithm=\(algorithm)", subsystem: hdrSubsystem);
+      Logger.log("Will enable tone mapping target-peak=\(targetPeak) algorithm=\(algorithm)", subsystem: hdrSubsystem)
       mpv.setInt(MPVOption.GPURendererOptions.targetPeak, targetPeak)
       mpv.setString(MPVOption.GPURendererOptions.toneMapping, algorithm)
     } else {
@@ -393,7 +410,7 @@ extension VideoView {
       mpv.setString(MPVOption.GPURendererOptions.toneMapping, "")
     }
 
-    return true;
+    return true
   }
 }
 
