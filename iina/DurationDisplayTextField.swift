@@ -23,7 +23,6 @@ class DurationDisplayTextField: NSTextField {
 
   /** Switches the display mode between duration and remaining time */
   func switchMode() {
-    guard mode != .current else { return }
     switch mode {
     case .duration:
       mode = .remaining
@@ -62,6 +61,7 @@ class DurationDisplayTextField: NSTextField {
   override func mouseDown(with event: NSEvent) {
     super.mouseDown(with: event)
 
+    guard mode != .current else { return }
     self.switchMode()
     Preference.set(mode == .remaining, for: .showRemainingTime)
   }
@@ -87,6 +87,7 @@ class DurationDisplayTextField: NSTextField {
     // handles the remaining time text field in the touch bar
     super.touchesBegan(with: event)
 
+    guard mode != .current else { return }
     self.switchMode()
     Preference.set(mode == .remaining, for: .touchbarShowRemainingTime)
   }
