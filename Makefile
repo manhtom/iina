@@ -12,7 +12,8 @@ depends:
 	# Make brew use our IINA FFmpeg and mpv formulas.
 	cp homebrew-mpv-iina/*-iina.rb "$(shell brew --repo homebrew/core)/Formula"
 	# Brew will build for the macOS version running on the local machine.
-	brew install --build-from-source ffmpeg-iina mpv-iina
+	brew install --build-from-source ffmpeg-iina
+	brew install mpv-iina --HEAD
 
 	rm -rf deps/include && mkdir -p deps/include
 	cp -R "$(shell brew --prefix ffmpeg-iina)/include/"* "$(shell brew --prefix mpv-iina)/include/mpv" deps/include/
