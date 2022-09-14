@@ -12,7 +12,7 @@
 		49542978216C34950058F680 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542977216C34950058F680 /* SafariExtensionHandler.swift */; };
 		49542980216C34950058F680 /* open-in-iina.js in Resources */ = {isa = PBXBuildFile; fileRef = 4954297F216C34950058F680 /* open-in-iina.js */; };
 		49542982216C34950058F680 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 49542981216C34950058F680 /* ToolbarItemIcon.pdf */; };
-		49542986216C34950058F680 /* OpenInIINA.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 49542973216C34950058F680 /* OpenInIINA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		49542986216C34950058F680 /* OpenInIINA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 49542973216C34950058F680 /* OpenInIINA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		496B19921E2968530035AF10 /* PIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496B19911E2968530035AF10 /* PIP.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		511527B728069C7C00B3A097 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 511527B628069C7C00B3A097 /* Algorithms */; };
 		51492FCE2714DE0C00C1FC3C /* PlaySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51492FCD2714DE0C00C1FC3C /* PlaySlider.swift */; };
@@ -245,15 +245,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4954298A216C34960058F680 /* Embed App Extensions */ = {
+		4954298A216C34960058F680 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				49542986216C34950058F680 /* OpenInIINA.appex in Embed App Extensions */,
+				49542986216C34950058F680 /* OpenInIINA.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8461BA631E423423008BB852 /* Copy Executables */ = {
@@ -933,7 +933,7 @@
 		9E47DABF1E3CFA6D00457420 /* DurationDisplayTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationDisplayTextField.swift; sourceTree = "<group>"; };
 		9E63CAB61E3F7D0E00EA66C9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		AD0478A627953DCE005A6B9E /* libavutil.57.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.57.dylib; path = deps/lib/libavutil.57.dylib; sourceTree = "<group>"; };
-    AD0478A827953DCE005A6B9E /* libswscale.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.6.dylib; path = deps/lib/libswscale.6.dylib; sourceTree = "<group>"; };
+		AD0478A827953DCE005A6B9E /* libswscale.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.6.dylib; path = deps/lib/libswscale.6.dylib; sourceTree = "<group>"; };
 		AD0478A927953DCE005A6B9E /* libavcodec.59.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.59.dylib; path = deps/lib/libavcodec.59.dylib; sourceTree = "<group>"; };
 		AD0478AB27953DCE005A6B9E /* libavfilter.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.8.dylib; path = deps/lib/libavfilter.8.dylib; sourceTree = "<group>"; };
 		AD0478B027953DCF005A6B9E /* libavformat.59.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.59.dylib; path = deps/lib/libavformat.59.dylib; sourceTree = "<group>"; };
@@ -1370,50 +1370,11 @@
 			children = (
 				AD70988827E0DD9200BD7795 /* libmpv.2.dylib */,
 				AD0478A927953DCE005A6B9E /* libavcodec.59.dylib */,
-				AD0478AE27953DCE005A6B9E /* libavdevice.59.dylib */,
 				AD0478AB27953DCE005A6B9E /* libavfilter.8.dylib */,
 				AD0478B027953DCF005A6B9E /* libavformat.59.dylib */,
 				AD0478A627953DCE005A6B9E /* libavutil.57.dylib */,
-				AD0478A727953DCE005A6B9E /* libpostproc.56.dylib */,
-				AD0478A527953DCE005A6B9E /* libswresample.4.dylib */,
 				AD0478A827953DCE005A6B9E /* libswscale.6.dylib */,
-				AD0478AD27953DCE005A6B9E /* libX11.6.dylib */,
-				AD0478AC27953DCE005A6B9E /* libXau.6.dylib */,
-				AD0478AA27953DCE005A6B9E /* libxcb.1.dylib */,
-				AD0478AF27953DCE005A6B9E /* libXdmcp.6.dylib */,
-				AD4353A5277D7871000F5C7B /* libluajit-5.1.2.dylib */,
-				AD183C1F2768376900758D8A /* libarchive.13.dylib */,
-				AD183C242768376900758D8A /* libass.9.dylib */,
-				AD183C362768376A00758D8A /* libavcodec.58.dylib */,
-				AD183C202768376900758D8A /* libavdevice.58.dylib */,
-				AD183C2D2768376A00758D8A /* libavfilter.7.dylib */,
-				AD183C1B2768376900758D8A /* libavformat.58.dylib */,
-				AD183C382768376A00758D8A /* libavutil.56.dylib */,
-				AD183C222768376900758D8A /* libb2.1.dylib */,
-				AD183C282768376A00758D8A /* libbluray.2.dylib */,
-				AD183C392768376A00758D8A /* libcrypto.3.dylib */,
-				AD183C232768376900758D8A /* libdav1d.5.dylib */,
-				AD183C322768376A00758D8A /* libfontconfig.1.dylib */,
-				AD183C2C2768376A00758D8A /* libfreetype.6.dylib */,
-				AD183C1D2768376900758D8A /* libfribidi.0.dylib */,
-				AD183C272768376900758D8A /* libglib-2.0.0.dylib */,
-				AD183C312768376A00758D8A /* libgraphite2.3.dylib */,
-				AD183C302768376A00758D8A /* libharfbuzz.0.dylib */,
-				AD183C352768376A00758D8A /* libintl.8.dylib */,
-				AD183C1A2768376900758D8A /* libjpeg.9.dylib */,
-				AD183C1C2768376900758D8A /* liblcms2.2.dylib */,
-				AD183C342768376A00758D8A /* liblz4.1.dylib */,
-				AD183C252768376900758D8A /* liblzma.5.dylib */,
 				AD183C2E2768376A00758D8A /* libmpv.1.dylib */,
-				AD183C372768376A00758D8A /* libmujs.dylib */,
-				AD183C292768376A00758D8A /* libpcre.1.dylib */,
-				AD183C332768376A00758D8A /* libpng16.16.dylib */,
-				AD183C2F2768376A00758D8A /* libpostproc.55.dylib */,
-				AD183C1E2768376900758D8A /* libssl.3.dylib */,
-				AD183C262768376900758D8A /* libswresample.3.dylib */,
-				AD183C2A2768376A00758D8A /* libswscale.5.dylib */,
-				AD183C212768376900758D8A /* libuchardet.0.dylib */,
-				AD183C2B2768376A00758D8A /* libzstd.1.dylib */,
 				8403CEA62007CBD300645516 /* MediaPlayer.framework */,
 				845E2F491E76CFC2002C6588 /* libz.tbd */,
 				496B19911E2968530035AF10 /* PIP.framework */,
@@ -1748,7 +1709,7 @@
 				84817CE81DBE2E3200CC2279 /* Copy Lua Scripts */,
 				84E745DA1DFDE9C600588DED /* Copy Configs */,
 				8461BA631E423423008BB852 /* Copy Executables */,
-				4954298A216C34960058F680 /* Embed App Extensions */,
+				4954298A216C34960058F680 /* Embed Foundation Extensions */,
 				AD0478A427953DCE005A6B9E /* Embed Libraries */,
 			);
 			buildRules = (
@@ -1795,7 +1756,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = lhc;
 				TargetAttributes = {
 					49542972216C34950058F680 = {
@@ -3108,6 +3069,7 @@
 				CODE_SIGN_ENTITLEMENTS = OpenInIINA/OpenInIINA.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3140,6 +3102,7 @@
 				CODE_SIGN_ENTITLEMENTS = OpenInIINA/OpenInIINA.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3193,6 +3156,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3254,6 +3218,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3285,6 +3250,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 131;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 67CQ77V27R;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3308,7 +3274,7 @@
 					"$(PROJECT_DIR)/deps/lib",
 				);
 				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.3.0;
 				MODULEMAP_FILE = module.modulemap;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
@@ -3335,6 +3301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 131;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 67CQ77V27R;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3358,7 +3325,7 @@
 					"$(PROJECT_DIR)/deps/lib",
 				);
 				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.3.0;
 				MODULEMAP_FILE = module.modulemap;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3385,6 +3352,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 67CQ77V27R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3408,6 +3376,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 67CQ77V27R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
