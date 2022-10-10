@@ -14,7 +14,7 @@ jobs:
       - name: Download dependencies
         run: |
           pwd
-          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/runs/2977642982/deps-x86_64.zip
+          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/runs/3217137862/deps-x86_64.zip
           unzip -d deps deps-x86_64
 
       - name: Archive
@@ -41,7 +41,7 @@ jobs:
       - name: Download dependencies
         run: |
           pwd
-          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/runs/2977642982/deps-arm64.zip
+          curl -LO https://nightly.link/iina-plus/homebrew-mpv-iina/actions/runs/3217137862/deps-arm64.zip
           unzip -d deps deps-arm64
 
       - name: Archive
