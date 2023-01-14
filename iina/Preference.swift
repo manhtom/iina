@@ -151,7 +151,6 @@ struct Preference {
     static let forceDedicatedGPU = Key("forceDedicatedGPU")
     static let loadIccProfile = Key("loadIccProfile")
     static let enableHdrModeByDefault = Key("enableHdrModeByDefault")
-    static let allowHdrModeForSdrVideos = Key("allowHdrModeForSdrVideos")
     static let enableToneMapping = Key("enableToneMapping")
     static let toneMappingTargetPeak = Key("toneMappingTargetPeak")
     static let toneMappingAlgorithm = Key("toneMappingAlgorithm")
@@ -763,7 +762,6 @@ struct Preference {
     .forceDedicatedGPU: false,
     .loadIccProfile: true,
     .enableHdrModeByDefault: true,
-    .allowHdrModeForSdrVideos: false,
     .enableToneMapping: false,
     .toneMappingTargetPeak: 0,
     .toneMappingAlgorithm: "auto",

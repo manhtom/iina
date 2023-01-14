@@ -58,9 +58,6 @@
 /* Class = "NSButtonCell"; title = "Enable HDR mode by default"; ObjectID = "oMN-7X-c5d"; */
 "oMN-7X-c5d.title" = "默认启用HDR模式";
 
-/* Class = "NSButtonCell"; title = "Allow HDR mode for SDR videos"; ObjectID = "o6X-8e-fnS"; */
-"o6X-8e-fnS.title" = "允许为SDR视频启用HDR模式";
-
 /* Class = "NSButtonCell"; title = "Enable tone mapping"; ObjectID = "a5Y-gU-JTj"; */
 "a5Y-gU-JTj.title" = "启用色调映射";
 
