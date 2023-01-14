@@ -47,7 +47,9 @@ class ViewLayer: CAOpenGLLayer {
     var attributeList: [CGLPixelFormatAttribute] = [
       kCGLPFADoubleBuffer,
       kCGLPFAAllowOfflineRenderers,
-      kCGLPFAOpenGLProfile, CGLPixelFormatAttribute(kCGLOGLPVersion_3_2_Core.rawValue),
+      kCGLPFAColorFloat,
+      kCGLPFAColorSize, CGLPixelFormatAttribute(64),
+      kCGLPFAOpenGLProfile, CGLPixelFormatAttribute(kCGLOGLPVersion_GL4_Core.rawValue),
       kCGLPFAAccelerated,
     ]
 

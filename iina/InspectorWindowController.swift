@@ -204,12 +204,7 @@ class InspectorWindowController: NSWindowController, NSTableViewDelegate, NSTabl
 
       if PlayerCore.lastActive.mainWindow.loaded && controller.fileLoaded {
         if let colorspace = PlayerCore.lastActive.mainWindow.videoView.videoLayer.colorspace, #available(macOS 10.15, *) {
-          var isHdr: Bool
-          if #available(macOS 11.0, *) {
-            isHdr = CGColorSpaceUsesITUR_2100TF(colorspace)
-          } else {
-            isHdr = colorspace.isHDR()
-          }
+          var isHdr = colorspace != VideoView.SRGB
           self.vcolorspaceField.stringValue = "\(colorspace.name!) (\(isHdr ? "H" : "S")DR)"
         } else {
           self.vcolorspaceField.stringValue = "Unspecified (SDR)"
